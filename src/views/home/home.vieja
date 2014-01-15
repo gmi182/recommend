@@ -1,0 +1,178 @@
+{% set base_path = "http://" ~ app.request.host %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>FansworldTV</title>
+    <!-- Mobile Specific Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" href="{{base_path}}/{{app.assets_path}}/css/tuktuk.css">
+    <link rel="stylesheet" href="{{base_path}}/{{app.assets_path}}/css/tuktuk.theme.css">
+    <link rel="stylesheet" href="{{base_path}}/{{app.assets_path}}/css/tuktuk.icons.css">
+
+    <style>
+        body > header .logo {
+            margin-top: 20px;
+            margin-right: 8px;
+            max-height: 30px; }
+
+        body > footer img {
+            height: 18px;
+            position: relative;
+            top: 5px;
+            left: 2px; }
+
+
+        .buscar {
+            background-color: #000;
+            color: #fff;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            padding: 5px;
+            width: 75px;
+            -webkit-transition: all .5s ease;
+            -moz-transition: all .5s ease;
+            transition: all .5s ease;
+            float: right;
+            height: 33px;
+            margin-left: 2px;
+        }
+        .buscar:focus {
+            width: 200px;
+            border: 3px solid #fff;
+
+        }
+    </style>
+
+</head>
+<body class="text thin">
+
+    <header class="bck dark padding color white">
+        <div class="row">
+            <div class="column_6">
+                <img src="{{base_path}}/{{app.assets_path}}/logofw.png" class="logo on-left"/>
+                <h2 class="text italic thin"></h2>
+            </div>
+            <nav class="column_6  text right bold">
+                <a href="#">Login</a>
+                <a href="#" class="button small">Signup</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="padding bck color">
+        <div class="row ">
+            <div class="column_3 padding" >
+                <img src="http://www.fansworld.tv/image/mira_trailer.png" class=" " style="width: 110% ;margin-top: 40px;" data-tip="Hello world!" />
+            </div>
+            <div class="column_9 color white">
+                <h1 class="text bold color theme margin-top">Fansworld TV</h1>
+                <h3 class="text normal italic margin-bottom">Comparte tu pasion</h3>
+                <h4 class="text justify margin-bottom">Somos un Canal Digital Interactivo en donde los fanáticos se conectan, ven contenido exclusivo de sus ídolos y comparten su pasión.</h4>
+
+                <div class="row text bold hide-phone">
+                    <div class="column_3" >
+                        <!-- <a href="#" class="color theme"><span class="icon home"></span> http://www.fansworld.tv</a> -->
+                    </div>
+                    <div class="column_3 ">
+                        <!-- <span class="icon pushpin"></span> Buenos Aires, ARG -->
+                    </div>
+                    <div class="column_3 text big right">
+                        <!-- 
+                            <a href="#" class="margin-right icon twitter"></span></a>
+                            <a href="#" class="margin-right icon facebook"></span></a>
+                            <a href="#" class="icon linkedin"></span></a>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bck dark">
+        <div class="row text center">
+            <nav data-tuktuk="menu" class="column_12 padding text bold">
+                <a href="/" ><span class="icon film"></span>Videos<small></small></a>
+                <a href="/video/list/sport"><span class="icon trophy"></span>Deporte<small></small></a>
+                <a href="/video/list/music"><span class="icon music"></span>Musica<small></small></a>
+                <a href="#"><span class="icon star"></span>Perfiles<small></small></a>
+            </nav>
+        </div>
+    </section>
+
+
+    <section class="margin-bottom">
+        <div class="row padding-top padding-bottom">
+            <div class="column_12">
+                <h2 class="text bold inline">Populares</h2>
+
+                <nav class="inline on-right">
+                    <input class="buscar" type="search" id ="buscar" placeholder="Buscar.."> 
+                    <a href="/video/list/entrevistas" class="button small">#entrevistas</a>
+                    <a href="/video/list/tenis" class="button small">#tenis</a>
+                    <a href="/video/list/boxeo" class="button small">#boxeo</a>
+                    <a href="/video/list/trucos" class="button small">#trucos</a>
+                    <a href="/video/list/fans" class="button small">#fans</a>
+                </nav>
+                <!-- <small class="block">by <a href="#" class="text bold underline">Author</a></small> -->
+            </div>
+
+            {% if videos %}
+                {% for video in videos %}
+                    <a href="/video/detail/{{video._id}}">
+                        <img src="http://cdn.kaltura.com/p/1164832/thumbnail/entry_id/{{video.kalturaid}}/width/200"/>  
+                    </a> 
+                {% endfor %}
+            {% else %}
+                Sin videos
+            {% endif %}
+                
+        </div>
+    </section>
+
+    <footer class="bck light padding">
+        <div class="row margin-top margin-bottom">
+            <div class="column_5">
+
+
+                <p class="text bold big">Fansworld TV <a href="http://www.fansworld.tv" class="display inline"><img src=""/></a></p>
+                © 2013 FANSWORLD TV CORPORATION <span class="text normal"></span>
+            </div>
+            <div class="column_4">
+                    <p class="text bold big">Join the team!</p>
+                    Let us know how you're! <a href="mailto:cv@fansworld.tv.com" class="text underline color theme">Apply!</a>
+            </div>
+            <div class="column_3">
+                <!--
+                    <p class="text bold big">Need some help?</p>
+                    For quick answers or help <a href="https://twitter.com/fansworldtv" target="_blank" class="text underline color theme">follow us</a>
+                -->
+                 <p class="text bold big">Follow us</p>
+                fansworldtv @  >
+                <a href="#" class="margin-right icon twitter"></span></a>
+                <a href="#" class="margin-right icon facebook"></span></a>
+                <a href="#" class="icon linkedin"></span></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{base_path}}/{{app.assets_path}}/js/jquery-1.9.1.min.js"></script>
+    <script src="{{base_path}}/{{app.assets_path}}/js/tuktuk.js"></script>
+
+
+    <script type="text/javascript">
+        $('#buscar').keypress(function(e) {
+            if(e.which == 13) {
+                if ((query = $('#buscar').val()) != "") {
+                    window.location.href = "{{base_path}}/video/search/" + query;
+                }
+            }
+        });
+    </script>
+
+
+</body>
+</html>
+

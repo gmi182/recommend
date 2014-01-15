@@ -1,0 +1,57 @@
+button.btn-fw {
+  padding-left: 26px;
+  padding-right: 26px;
+  border-radius: 3px;
+  font-weight: 400;
+  font-size: 14px;
+  border: 2px solid @fwBrown;
+
+  &.bg-transparent {
+    color: @fwBrown;
+    background-color: transparent;
+  }
+
+  &.bg-brown {
+    color: @fwWhite;
+    background-color: @fwBrown;
+  }
+}
+
+button.connect-with {
+  .size(275px, 60px);
+  position: relative;
+  display: inline-block;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  border: 0;
+  color: @fwWhite;
+  text-align: left;
+
+  i {
+    float: left;
+    vertical-align: middle;
+    margin-right: 25px;
+    margin-left: 20px;
+  }
+
+  &.fb {
+    background-color: #3b5998;
+  }
+
+  &.tw {
+    background-color: #00aced;
+
+    i {
+      margin-top: 3px;
+    }
+  }
+
+  &.fw {
+    background-color: @fwGold;
+
+    i {
+      margin-top: 5px;
+    }
+  }
+}
