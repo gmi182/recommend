@@ -16,6 +16,7 @@ class Search implements ControllerProviderInterface
         $controllers = $app['controllers_factory'];
 
         $controllers->get('/', array($this, 'index'));
+        $controllers->get('/{keyword}', array($this, 'keyword'));
         $controllers->get('/{typeId}/{keyword}/', array($this, 'findByType'));
 
         return $controllers;
@@ -30,5 +31,11 @@ class Search implements ControllerProviderInterface
     {
         return 'sarasa';
         //implement
+    }
+
+    public function keyword(Application $app, $keyword)
+    {
+        //dsajdlkasjdla 
+        return 'dasdasda';
     }
 }
