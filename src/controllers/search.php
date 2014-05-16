@@ -26,7 +26,7 @@ class Search implements ControllerProviderInterface
 
     public function index()
     {
-        return 'index';
+        return 'search-index';
     }
 
     public function findByType()

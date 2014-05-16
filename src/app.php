@@ -4,6 +4,13 @@ require_once __DIR__ . '/../vendor/autoload.php';
 $app = new Silex\Application();
 //$app['debug']=true;
 //$app->register(new Controllers\Search());
+
+$app->register(new Silex\Provider\TwigServiceProvider(), array(
+    'twig.path' => __DIR__ . '/views',
+  //  'controllers' => __DIR__ . '/controllers'
+));
+
+$app->mount('/book', new Controllers\Book());
 $app->mount('/search', new Controllers\Search());
 
 //echo '<pre>';
