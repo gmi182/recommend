@@ -10,6 +10,7 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
   //  'controllers' => __DIR__ . '/controllers'
 ));
 
+$app->mount('/home', new Controllers\Home());
 $app->mount('/book', new Controllers\Book());
 $app->mount('/search', new Controllers\Search());
 

@@ -1,13 +1,20 @@
+{% set asset_base = '../../assets/css/' %}
 <!DOCTYPE html>
 <html>
     <head>
         {% block head %}
-            <link rel="stylesheet" href="style.css" />
+            <link rel="stylesheet" href="{{ asset_base }}general.css" />
+            {% block css %}{% endblock %}
             <title>{% block title %}{% endblock %}</title>
         {% endblock %}
     </head>
     <body>
-        <div id="content">{% block content %}{% endblock %}</div>
+        <div id="header">
+            {% block header %}{% endblock %}
+        </div>
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
         <div id="footer">
             {% block footer %}
             {% endblock %}

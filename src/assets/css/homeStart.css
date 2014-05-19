@@ -1,0 +1,44 @@
+.pageTitle {
+    font-size: 44px;
+    color: #FFF;
+}
+
+.pageTitle > .titleBook {
+    text-shadow:
+        2px 0 0 #4C66A4,
+        -2px 0 0 #4C66A4,
+        0 2px 0 #4C66A4,
+        0 -2px 0 #4C66A4,
+        1px 1px #4C66A4,
+        -1px -1px 0 #4C66A4,
+        1px -1px 0 #4C66A4,
+        -1px 1px 0 #4C66A4;
+}
+
+.pageTitle > .titleIn {
+    color: #ff0;
+    color: yellow;
+    text-shadow:
+        2px 0 0 #69bf13,
+        -2px 0 0 #69bf13,
+        0 2px 0 #69bf13,
+        0 -2px 0 #69bf13,
+        1px 1px #69bf13,
+        -1px -1px 0 #69bf13,
+        1px -1px 0 #69bf13,
+        -1px 1px 0 #69bf13;
+}
+
+.pageTitle > .titleMe {
+    color: #f0ad4e;
+    color: orange;
+    text-shadow:
+        2px 0 0 #d9534f,
+        -2px 0 0 #d9534f,
+        0 2px 0 #d9534f,
+        0 -2px 0 #d9534f,
+        1px 1px #d9534f,
+        -1px -1px 0 #d9534f,
+        1px -1px 0 #d9534f,
+        -1px 1px 0 #d9534f;
+}

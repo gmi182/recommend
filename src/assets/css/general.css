@@ -1,0 +1,8 @@
+body, html, p, li, ul, ol, a, span, div, header, footer {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #00aced;
+}
