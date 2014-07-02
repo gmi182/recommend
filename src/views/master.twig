@@ -1,10 +1,12 @@
-{% set asset_base = '../../assets/css/' %}
+{% set asset_base = '../../assets/' %}
 <!DOCTYPE html>
 <html>
     <head>
         {% block head %}
-            <link rel="stylesheet" href="{{ asset_base }}general.css" />
+            <link rel="stylesheet" href="{{ asset_base }}less/bootstrap/bootstrap.css" />
+            <link rel="stylesheet" href="{{ asset_base }}css/general.css" />
             {% block css %}{% endblock %}
+            {% block js %}{% endblock %}
             <title>{% block title %}{% endblock %}</title>
         {% endblock %}
     </head>

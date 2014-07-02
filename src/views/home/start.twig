@@ -8,9 +8,49 @@
 {% endblock %}
 {% block content %}
     <section class="login">
-        <div class="facebookConnect">Conectar con Facebook</div>
-        <div class="startLogin">Iniciar sesi&oacute;n</div>
-        <div class="forgotPassword"><a href="">¿Olvidaste tu contrase&ntilde;a?</a></div>
-        <div class="createAccount"><a href="">Crear cuenta</a></div>
+        <div class="facebookConnect">{{ facebook_connect|trans }}</div>
+        <div class="startLogin">{{ session_start|trans }}</div>
+        <div class="loginFormWrapper">
+            <form id="loginForm" method="POST" action="login">
+                <div class="usernameWrapper">
+                    <label for="username">{{ username_or_email|trans }}:</label>
+                    <input type="text" name="username" id="username" />
+                </div>
+                <div class="passwordWrapper">
+                    <label for="password">{{ password|trans }}:</label>
+                    <input type="password" name="password" id="password" />
+                </div>
+                <div class="submitWrapper">
+                    <button type="submit" class="btn btn-success" id="getIn">{{ get_in|trans }}</button>
+                </div>
+            </form>
+        </div>
+        <div class="forgotPassword"><a href="">{{ forgot_password|trans }}</a></div>
+        <div class="createAccount">
+            <a href="">{{ create_account|trans }}</a>
+            <div class="hidden signUpFormWrapper">
+                <form id="createAccountForm">
+                    <div class="usernameWrapper">
+                        <label for="new_username">{{ user|trans }}:</label>
+                        <input type="text" name="new_username" id="new_username" />
+                    </div>
+                    <div class="emailWrapper">
+                        <label for="new_email">{{ email|trans }}</label>
+                        <input type="email" name="new_email" id="new_email" />
+                    </div>
+                    <div class="passwordWrapper">
+                        <label for="new_password">{{ email|trans }}</label>
+                        <input type="password" name="new_password" id="new_password" />
+                    </div>
+                    <div class="passwordWrapper">
+                        <label for="new_password_repeat">{{ email|trans }}</label>
+                        <input type="password" name="new_password_repeat" id="new_password_repeat" />
+                    </div>
+                    <div class="submitWrapper">
+                        <button type="submit" class="btn btn-success" id="createAccount">{{ create_it|trans }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 {% endblock %}

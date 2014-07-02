@@ -1,14 +1,29 @@
 <?php
+
+//Need to update composer // php composer.phar install or update
+//http://www.erikaheidi.com/blog/silex-and-localization-l10n-translationserviceprovider
+
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Silex\Application();
 //$app['debug']=true;
 //$app->register(new Controllers\Search());
 
+/*$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+    'locale_fallback' => 'en',
+));
+
+$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
+    $translator->addLoader('yaml', new YamlFileLoader());
+    return $translator;
+}));
+
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/views',
   //  'controllers' => __DIR__ . '/controllers'
-));
+));*/
+
+require_once 'bootstrap.php';
 
 $app->mount('/home', new Controllers\Home());
 $app->mount('/book', new Controllers\Book());
