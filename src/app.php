@@ -6,28 +6,14 @@ error_reporting(E_ALL);
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = new Silex\Application();
-//$app['debug']=true;
+$app['debug']=true;
 //$app->register(new Controllers\Search());
 
-$app->register(new Silex\Provider\TranslationServiceProvider(), array(
-    'locale_fallback' => 'en',
-));
+require_once 'bootstrap.php';
 
-$app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
-    $translator->addLoader('yaml', new YamlFileLoader());
-    return $translator;
-}));
+//require_once __DIR__ . '/controllers/book.php';
 
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/views',
-  //  'controllers' => __DIR__ . '/controllers'
-));
-
-//require_once 'bootstrap.php';
-
-require_once __DIR__ . '/controllers/book.php';
-
-$app->mount('homea', new \Controllers\Home());
+$app->mount('home', new Controllers\Home());
 $app->mount('book', new Controllers\Book());
 $app->mount('search', new Controllers\Search());
 
