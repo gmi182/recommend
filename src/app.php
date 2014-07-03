@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(E_ALL);
 //Need to update composer // php composer.phar install or update
 //http://www.erikaheidi.com/blog/silex-and-localization-l10n-translationserviceprovider
 
@@ -9,7 +9,7 @@ $app = new Silex\Application();
 //$app['debug']=true;
 //$app->register(new Controllers\Search());
 
-/*$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
     'locale_fallback' => 'en',
 ));
 
@@ -21,23 +21,18 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/views',
   //  'controllers' => __DIR__ . '/controllers'
-));*/
+));
 
-require_once 'bootstrap.php';
+//require_once 'bootstrap.php';
 
-$app->mount('/home', new Controllers\Home());
-$app->mount('/book', new Controllers\Book());
-$app->mount('/search', new Controllers\Search());
+require_once __DIR__ . '/controllers/book.php';
 
-//echo '<pre>';
-//var_dump($app); die;
+$app->mount('homea', new \Controllers\Home());
+$app->mount('book', new Controllers\Book());
+$app->mount('search', new Controllers\Search());
+
 
 //require_once 'controllers/search.php';
-
-/*$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__ . '/views',
-    'controllers' => __DIR__ . '/controllers'
-));*/
  
 /*$app->error(function (\Exception $e, $code) { 
 	return new Response($e->getMessage());

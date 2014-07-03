@@ -11,11 +11,11 @@
 
 namespace Symfony\Component\Form\Extension\Validator\Constraints;
 
-use Symfony\Component\Form\ClickableInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Extension\Validator\Util\ServerParams;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
+use Symfony\Component\Validator\Exception\UnexpectedTypeException;
 
 /**
  * @author Bernhard Schussek <bschussek@gmail.com>
@@ -43,6 +43,10 @@ class FormValidator extends ConstraintValidator
      */
     public function validate($form, Constraint $constraint)
     {
+        if (!$constraint instanceof Form) {
+            throw new UnexpectedTypeException($constraint, __NAMESPACE__.'\Form');
+        }
+
         if (!$form instanceof FormInterface) {
             return;
         }
@@ -136,7 +140,7 @@ class FormValidator extends ConstraintValidator
      *
      * @param  FormInterface $form The form to test.
      *
-     * @return Boolean Whether the graph walker may walk the data.
+     * @return bool    Whether the graph walker may walk the data.
      */
     private static function allowDataWalking(FormInterface $form)
     {

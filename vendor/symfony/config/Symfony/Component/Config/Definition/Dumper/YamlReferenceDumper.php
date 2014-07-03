@@ -45,7 +45,7 @@ class YamlReferenceDumper
 
     /**
      * @param NodeInterface $node
-     * @param integer       $depth
+     * @param int           $depth
      */
     private function writeNode(NodeInterface $node, $depth = 0)
     {
@@ -97,7 +97,7 @@ class YamlReferenceDumper
                 $default = $node->getDefaultValue();
 
                 if (is_array($default)) {
-                    if ($node->hasDefaultValue() && count($defaultArray = $node->getDefaultValue())) {
+                    if (count($defaultArray = $node->getDefaultValue())) {
                         $default = '';
                     } elseif (!is_array($example)) {
                         $default = '[]';
